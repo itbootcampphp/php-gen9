@@ -78,3 +78,7 @@ p:first-child {
 li:nth-child(odd) {
     color: red;
 }
+
+h6 {
+    color: purple;
+}
