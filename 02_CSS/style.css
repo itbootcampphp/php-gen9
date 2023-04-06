@@ -1,0 +1,80 @@
+.klasa {
+    color: purple;
+}
+
+#p1 {
+    color: brown;
+}
+
+p {
+    /*
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    */
+    font: 18px Arial, Helvetica, sans-serif;
+    background: blueviolet url('slika.jpg');
+    text-align: center;
+    color: #39F80A;
+    /*
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    */
+    border: black solid 3px;
+}
+
+.moja_klasa {
+    text-align: right;
+}
+
+/*
+div p {
+    font-size: 30px;
+}
+*/
+/*
+div>p {
+    font-size: 30px;
+}
+*/
+div+p {
+    font-size: 30px;
+}
+/*
+div~p {
+    font-size: 30px;
+}
+*/
+a:visited {
+    color: red;
+}
+a:link {
+    color: violet;
+}
+a:hover {
+    background-color: #39F80A;
+}
+a:active {
+    font-size: 24px;
+}
+a::before {
+    content: "Ovo je link: ";
+}
+#p1::first-letter {
+    font-size: 30px;
+}
+
+/*
+p:first-child {
+    border: 5px dotted silver;
+}
+*/
+/* p:first-of-type {
+    border: 5px dotted silver;
+} */
+/* p:nth-of-type(2) {
+    border: 5px dotted silver;
+} */
+li:nth-child(odd) {
+    color: red;
+}
