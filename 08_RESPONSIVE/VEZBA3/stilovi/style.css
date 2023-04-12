@@ -1,0 +1,131 @@
+/* Ovde se nalaze stilovi za responsive dizajn */
+
+* {
+    box-sizing: border-box; /*OVO JE BITNO ZA RESPONSIVE*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*mora da se poštuje parent-child struktura parent je ROW a unutar su child COL-x klase*/
+.row {
+    width: 100%;
+    overflow: hidden; /*OVO JE BITNO ZA RESPONSIVE*/
+}
+
+/* ovaj selektor hvata sve elemente koji u nazivu klase imaju "col-" */
+[class*="col-"]{
+    float: left; /*OVO JE BITNO ZA RESPONSIVE*/
+}
+
+/*UVEK SE PRVO DEFINIŠE ZA NAJMANJI EKRAN PA DO NAJVEĆEG (mobilni, tablet, desktop)*/
+
+/* mobilni */
+@media only screen and (max-width:700px){ /*Važi za širinu do 700px (700px i manje)*/
+    * {
+        font-size: 30px; /*za mobilne uređaje menjamo font na veći*/
+    }
+
+    /* ovo je dopuna selektora i ovim podešavamo da svi elementi budu u novom redu i da zauzimaju celu širinu ekrana*/
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    /*
+    Nije greška umesto reda 31-33 definisati novu grid skalu sa klasama col-m-X
+    ali je neophodno da se onda u html-u za svaki div col-X doda col-m-12 da bi dobili ono što se traži u zadatku
+    */
+    /*.col-m-1 { width: calc(100%/12); }
+    
+    .col-m-2 { width: calc(100%/12*2) }
+    
+    .col-m-3 { width: 25%; }
+    
+    .col-m-4 { width: calc(100%/12*4); }
+    
+    .col-m-5 { width: calc(100%/12*5); }
+    
+    .col-m-6 { width: 50%; }
+    
+    .col-m-7 { width: calc(100%/12*7); }
+    
+    .col-m-8 { width: calc(100%/12*8); }
+    
+    .col-m-9 { width: 75%; }
+    
+    .col-m-10 { width: calc(100%/12*10); }
+    
+    .col-m-11 { width: calc(100%/12*11); }
+    
+    .col-m-12 { width: 100%; }*/
+    
+
+    /* 2. dodatak uz vežbu (dropdown opis)*/
+    /*.hide {
+        display: none;
+    }
+        
+    article h3:hover + .hide {
+        display: block;
+    }*/
+    /* end dodatak uz vežbu (dropdown opis)*/
+}
+/* end mobilni */
+
+
+/* desktop */
+@media only screen and (min-width:1000px){
+    .col-1 { width: calc(100%/12); }
+    
+    .col-2 { width: calc(100%/12*2) }
+    
+    .col-3 { width: 25%; }
+    
+    .col-4 { width: calc(100%/12*4); }
+    
+    .col-5 { width: calc(100%/12*5); }
+    
+    .col-6 { width: 50%; }
+    
+    .col-7 { width: calc(100%/12*7); }
+    
+    .col-8 { width: calc(100%/12*8); }
+    
+    .col-9 { width: 75%; }
+    
+    .col-10 { width: calc(100%/12*10); }
+    
+    .col-11 { width: calc(100%/12*11); }
+    
+    .col-12 { width: 100%; }
+
+    /* mogu da se definišu konkrenti procenti bez korišćenja calc() f-je*/
+    /*.col-1 { width: 8.33%; }
+    
+    .col-2 { width: 16.66%; }
+    
+    .col-3 { width: 25%; }
+    
+    .col-4 { width: 33.33%; }
+    
+    .col-5 { width: 41.66% }
+    
+    .col-6 { width: 50%; }
+    
+    .col-7 { width: 58.33%; }
+    
+    .col-8 { width: 66.66%; }
+    
+    .col-9 { width: 75%; }
+    
+    .col-10 { width: 83.33%; }
+    
+    .col-11 { width: 91.66%; }
+    
+    .col-12 { width: 100%; }
+    */
+}
+/* end desktop */
+
+

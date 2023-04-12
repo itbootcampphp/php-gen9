@@ -26,7 +26,7 @@
 @media only screen and (min-width: 600px){
     .col-t-1 { width: calc(100%/12); /*width: 8.33%;*/}
     
-    .col-t-2 { width: calc(100%/12*2) }
+    .col-t-2 { width: calc(100%/12*2); }
     
     .col-t-3 { width: 25%; }
     

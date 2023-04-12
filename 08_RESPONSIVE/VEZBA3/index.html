@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Importuje "naša slova" -->
+    <meta charset="UTF-8">
+
+    <!-- Početna podešavanja za responsive site -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Povezivanje sa css fajlovima (stilovima koje kreiramo) -->
+    <link rel="stylesheet" href="stilovi/style.css"> <!-- Responsive style -->
+    <link rel="stylesheet" href="stilovi/style-elem.css"> <!-- Izgled elemenata (šminka) -->
+
+    <!-- Link za ikonice -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Dodir prirode</title>
+</head>
+<body>
+    
+    <!-- header sekcija -->
+    <header>
+		<div class="row">
+			<div class="col-12">
+				<h1>Dodir prirode</h1>
+			</div>
+		</div>
+    </header>
+	<!-- end header-->
+
+	<!-- nav + main -->
+	<div class="row"> <!-- div sa klasom COL mora da se nalazi unutar div-a sa klasom ROW. Zbir COL klasa unutar jednog ROW-a mora biti 12 (uvek radimo prvo podešavanje za desktop)-->
+		<!-- nav -->
+		<div class="col-3">
+			<nav>
+				<ul>
+					<li><a href="#biljke"><i class="fa fa-leaf"></i> Biljke</a></li> <!-- href="#biljke" - klikom se skroluje na elemenat sa id="biljke"-->
+					<li><a href="#zivotinje"><i class="fa fa-paw"></i> Životinje</a></li> <!-- href="#zivotinje" - klikom se skroluje na elemenat sa id="zivotinje"-->
+					<li><a href="#pejzazi"><i class="fa fa-photo"></i> Pejzaži</a></li> <!-- href="#pejzazi" - klikom se skroluje na elemenat sa id="pejzazi"-->
+				</ul>
+			</nav>
+		</div>
+		<!-- end nav -->
+		<!-- main -->
+		<div class="col-9">
+			<main>
+				<p>Podelite svoje fotografije prirode sa nama!</p>
+				<cite>
+					"Nema stvari koja bi bila tako vredna poučavanja kao priroda."<br>
+					Nikola Tesla 
+				</cite>
+			</main>
+		</div>
+		<!-- end main -->
+	</div>
+	<!-- slike u jednom redu 3 slike istih širina (css za slike width:100%)-->
+	<div class="row">		
+		<div class="col-4">
+			<img src="slike/lights.jpg" alt="lights">
+		</div>
+		<div class="col-4">
+			<img src="slike/mountains.jpg" alt="mountains">
+		</div>
+		<div class="col-4">
+			<img src="slike/nature.jpg" alt="nature">
+		</div>		
+	</div>
+	<!-- end slike -->
+
+	<!-- za mobilni uređaj zameniti sliku (1. dodatak uz vežbu) - ideja je da media query može da se koristi i u okviru html taga media="(max-width: 700px)"-->
+	<!--div class="row">
+		<div class="col-4">
+			<picture>
+				<source srcset="slike/mountains.jpg" media="(max-width: 700px)">
+				<source srcset="slike/lights.jpg">
+				<img src="slike/lights.jpg" alt="lights">
+			</picture>
+		</div>
+
+		<div class="col-4">
+			<img src="slike/mountains.jpg" alt="mountains">
+		</div>
+
+		<div class="col-4">
+			<picture>
+				<source srcset="slike/mountains.jpg" media="(max-width: 700px)">
+				<source srcset="slike/nature.jpg">
+				<img src="slike/nature.jpg" alt="lights">
+			</picture>
+		</div>
+	</div-->
+	<!-- end za mobilni uređaj zameniti sliku-->
+
+	<!-- citati u jednom redu 3 citata različitih širina 3, 4, 5 ukupno 12 -->
+	<div class="row">
+		<div class="col-3">			
+			<article id="biljke"> <!-- dodajemo ID zbog gornjeg menija da klikom može da se skroluje na ovaj element-->
+				<h3>Biljke</h3>
+				<div class="hide"> <!-- HIDE klasu dodajemo zbog 2. dodatka uz vežbu (dropdown opis)-->
+					<em>Sreća - to je biti sa prirodom, gledati je i s njom govoriti.<br>
+					<strong>L. N. Tolstoj</strong></em>
+				</div>
+			</article>
+		</div>
+		<div class="col-4">
+			<article id="zivotinje">
+				<h3>Životinje</h3>
+				<div class="hide">
+					<em>Priroda je jedina knjiga koja na svim listovima nudi mnogo sadržaja.<br>
+					<strong>Goethe</strong></em>
+				</div>
+			</article>
+		</div>
+		<div class="col-5">
+			<article id="pejzazi">
+				<h3>Pejzaži</h3>
+				<div class="hide">
+					<em>Priroda nam skriva svoje tajne jer je veličanstvena, a ne jer je varalica.
+					Zagledaj se duboko, duboko u prirodu, i tada ćeš sve bolje razumjeti.<br>
+					<strong>Albert Einstein</strong></em>
+				</div>
+			</article>
+		</div>
+	</div>
+	<!-- end citati -->
+
+
+	<!--Stefanov način raporeda elemenata za vežbu broj 4-->
+	<!--Imamo dva reda sa po dve kolone s tim da u drugom redu prva kolona je "prazna" -->
+	<!--div class="row" style="background-color: gray;">
+		<div class="col-4">
+			<p style="color: red;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad rem quas rerum nobis optio praesentium repudiandae fugiat ipsum porro repellendus dicta tempore dolore earum obcaecati ratione, unde dolorum sequi incidunt.</p>
+		</div>
+		<div class="col-8">
+			<p style="color: green;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad rem quas rerum nobis optio praesentium repudiandae fugiat ipsum porro repellendus dicta tempore dolore earum obcaecati ratione, unde dolorum sequi incidunt.</p>
+		</div>
+	</div>
+	<div class="row" style="background-color: gray;">
+		<div class="col-4">
+			&nbsp; 
+		</div>
+		<div class="col-8">
+			<p style="color: blue;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad rem quas rerum nobis optio praesentium repudiandae fugiat ipsum porro repellendus dicta tempore dolore earum obcaecati ratione, unde dolorum sequi incidunt.</p>
+		</div>
+	</div-->
+	<!--end Stefanov način raporeda elemenata za vežbu broj 4-->
+
+	<!--Betin način raporeda elemenata za vežbu broj 4-->
+	<!-- imamo jedan red koji delimo u dve kolone a unutar kolona imamo nove redove sa po jednom kolonom col-12 -->
+	<!--div class="row" style="background-color: darkkhaki;">
+		<div class="col-4">
+			<div class="row">
+				<div class="col-12">
+					<p style="color: red;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad rem quas rerum nobis optio praesentium repudiandae fugiat ipsum porro repellendus dicta tempore dolore earum obcaecati ratione, unde dolorum sequi incidunt.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-8">
+			<div class="row">
+				<div class="col-12">
+					<p style="color: green;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad rem quas rerum nobis optio praesentium repudiandae fugiat ipsum porro repellendus dicta tempore dolore earum obcaecati ratione, unde dolorum sequi incidunt.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<p style="color: blue;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad rem quas rerum nobis optio praesentium repudiandae fugiat ipsum porro repellendus dicta tempore dolore earum obcaecati ratione, unde dolorum sequi incidunt.</p>
+				</div>
+			</div>
+		</div>
+	</div-->
+	<!--end Betin način raporeda elemenata za vežbu broj 4-->
+
+
+    <!-- footer -->
+	<footer>
+		<div class="row">
+			<div class="col-12">
+				<h4>Dobrodošli na naš sajt!</h4>
+			</div>
+		</div>
+	</footer>
+	<!-- footer citati -->
+	
+</body>
+</html>
