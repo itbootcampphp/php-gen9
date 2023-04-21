@@ -81,4 +81,34 @@
 
     echo "<p>$a <= $b <= $c</p>";
 
+
+
+    // Zadatak 17, ponovo
+    $a = 5;
+    $b = 9;
+    $c = -3;
+
+    $max = $a;
+    if ($b > $max)
+    {
+        $max = $b;
+    }
+    if ($c > $max)
+    {
+        $max = $c;
+    }
+
+    $min = $a;
+    if ($b < $min)
+    {
+        $min = $b;
+    }
+    if ($c < $min)
+    {
+        $min = $c;
+    }
+
+    $sr = $a + $b + $c - ($min + $max);
+    echo "<p>$min <= $sr <= $max</p>";
+
 ?>
