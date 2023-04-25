@@ -224,4 +224,140 @@
 
     ////////////////////
     
+    // 10. ZADATAK
+    // Odrediti sumu kvadrata parnih i 
+    // sumu kubova neparnih brojeva od n do m
+    $p = 1;
+    $n = $i = 1;
+    $m = 10;
+    $parni = $neparni = 0;
+    while($i <= $m )
+    {
+        if($i % 2 ==0)
+        {
+            $parni =($i * $i) + $parni; //$i**2  to bi znacilo $i na kvadrat
+        }
+        else
+        {
+            $neparni = ($i * $i *$i) + $neparni; // $i na kub je $i**3
+        }
+    $i++;
+    }
+    echo "<p>Suma kvadrata parnih je $parni. <br/> Suma kubova neparnih je $neparni</p>";
+
+    ////////////////////
+
+    // 11. ZADATAK
+    // Odrediti sa koliko brojeva je deljiv uneti broj k 
+    $br = 0;
+    $k = 15;
+    $i = 1;
+    while($i<=$k) {
+        if($k % $i == 0) {
+            $br++;
+        }
+        $i++;
+    }
+    echo "<p>Broj $k ima $br delilaca</p>";
+
+    ////////////////////
+
+    // 12. ZADATAK
+    // Odrediti da li je dati prirodan broj n prost. 
+    // Broj je prost ako je deljiv samo sa jedan i sa samim sobom.
+
+    // 1. način
+    $br = 0; // sa koliko brojeva je deljiv uneti broj $k
+    $k = 13; // uneti broj
+    $i = 1; // iterator koji pokušava da deli uneti broj $k
+    while($i<=$k) {
+        if($k % $i == 0) {
+            $br++;
+        }
+        $i++;
+    }
+    if($br == 2) {
+        echo "<p>Broj $k je prost</p>";
+    }
+    else {
+        echo "<p>Broj $k nije prost</p>";
+    }
+
+    // 2. način
+    $k = 10;
+    $i = 2;
+    $prost = true; // pretpostavka da je broj prost
+    // while($i <= sqrt($k))
+    while($i < $k) {
+        if($k % $i == 0) {
+            $prost = false;
+            break;
+        }
+        $i++;
+    }  
+    if($prost) {
+        echo "<p>Broj $k jeste prost</p>";
+    }
+    else {
+        echo "<p>Broj $k nije prost</p>";
+    }
+
+    // 13. ZADATAK
+    // Množiti sve brojeve od 20 ka 1, 
+    // sve dok proizvod ne predje 10.000. 
+    // Prikazati konacan rezultat crvenom bojom 
+    // a poslednje pomnozeni broj - zelenom.
+    
+    // 1. način (Nikola Vemić)
+    $k = 20;
+    $n = 20;
+    $i = 1;
+    $proizvod = 1;
+    while ( $i <= $k){
+        $proizvod *= $n;
+        if ( $proizvod > 10000){
+            echo "<p style='color:red'>$proizvod</p>";
+            echo "<p style='color:green'>$n</p>";
+            break;
+        }
+        $n--;
+        $i++;
+    }
+
+    // 2. način (Adam Dervišević)
+    $i = 20;
+    $pro = 1;
+    while($i >= 1) {
+        $pro = $pro * $i;
+        if($pro > 10000){
+            break;
+        }
+        $i--;
+    }
+    echo "<p>Poslednji broj koji je ucestovao je: <span style='color:red;'>$i</span></p>";
+    echo "<p>Prozivod je: <span style='color:green;'>$pro</span></p>";
+
+    // 3. način (Andreja Raičević)
+    $n = 21;
+    $p = 1;
+    while ($p <= 10000 && $n >= 1) {
+        $n--;
+        $p *= $n;
+    }
+    echo "<p>Poslednji broj koji je ucestvovao u mnozenju je :<span  style='color: green;'>$n</span></p>";
+    echo "<p>Krajnji rezultat je :<span style='color: red;'>$p</span></p>";
+
+    // 13. ZADATAK
+    // 1. način (Srđan Ćulibrk)
+    $n = 8;
+    $m= 132;
+    if($n < $m){
+        $rez = $n;
+        while($rez <= $m){
+            $rez *= $n;
+        }
+        echo $rez;
+    } else {
+        echo "<p>Greska</p>";
+    }
 ?>
