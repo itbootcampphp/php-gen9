@@ -172,7 +172,17 @@ Pozvati funkcije i testirati njihov*/
         
     }
     echo aritmeticka(5, 13);
-    
+    echo "<hr>";
+    /*2. nacin*/
+    function aritmeticka2($n, $m){
+        if($n>$m){
+            return "<p>Zadali ste pogresan opseg</p>";
+        }
+        
+        return ($n + $m)/2;        
+    }
+
+    echo aritmeticka2(5, 13);
 
     echo "<hr> zadatak 8:<hr>";
     /*zadatak 8: Napisati funkciju aritmetickaCifre koja vraća aritmetičku sredinu brojeva 
