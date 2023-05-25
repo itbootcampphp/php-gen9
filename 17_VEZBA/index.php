@@ -66,12 +66,55 @@ for($i = 0; $i < count($dan['temperatura']); $i++){
     $t = $dan['temperatura'][$i];
 }
 
+class Knjiga{
+    public $brojSrana;
+    public $cena;
+}
 
+$k1 = new Knjiga();
+$k1->brojSrana = 500;
+$k1->cena = 5000;
 
+$k2 = new Knjiga();
+$k2->brojSrana = 200;
+$k2->cena = 3500;
 
+$k3 = new Knjiga();
+$k3->brojSrana = 330;
+$k3->cena = 1200;
 
+$k4 = new Knjiga();
+$k4->brojSrana = 400;
+$k4->cena = 900;
 
+$k5 = new Knjiga();
+$k5->brojSrana = 120;
+$k5->cena = 600;
 
+$knjige = array($k1, $k2, $k3, $k4, $k5);
+
+function maxProsekNiz($knjige){
+    $max = 0;
+    foreach ($knjige as $knjiga) {
+        $t = $knjiga->cena / $knjiga->brojSrana;
+        if($max < $t){
+            $max = $t;
+        }
+    }   
+    return $max;
+}
+
+function maxProsekNiz2($knjige){
+    $max = 0;
+    for ($i=0; $i<count($knjige); $i++) {
+        $knjiga = $knjige[$i];
+        $t = $knjiga->cena / $knjiga->brojSrana;
+        if($max < $t){
+            $max = $t;
+        }
+    }   
+    return $max;
+}
 
 
 
