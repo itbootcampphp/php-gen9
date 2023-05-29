@@ -13,34 +13,28 @@ echo $b->obimKruga() . "<br>";  // 2 * $b->r * 3.14
 echo $b->povrsinaKruga() . "<br>"; // $b->r * $b->r * 3.14
 
 echo Krug::PI . "<br>";
+*/
+echo "<hr>";
+//pristup statickom polju i metodama bez objekta klase
+//Krug::$pi = 3.141; //polje je public
+Krug::setPi(3.141); //polje je private
+Krug::setBrojDecimala(20);
+echo "<p>Promenljiva pi je (poziv bez objekta): " . Krug::getPi() . "</p>";
+echo "<p>Broj decimala (poziv bez objekta): " . Krug::getBrojDecimala() . "</p>";
 
-$c = new Krug(2);
-echo $a->obimKruga() . "<br>";
-echo $a->povrsinaKruga() . "<br>";
-//$a->pi = 3.14159; //ovako postavimo ako je public
-$a->setPi(3.14159);
-echo $a->obimKruga() . "<br>";
-echo $a->povrsinaKruga() . "<br>";*/
-
-
-echo Krug::getPi()."<br>";
-Krug::setPi(3.14159);
-echo Krug::getPi(). "<br>";
-
-echo "<p>Broj krugova do sada je: " . Krug::getBrojKrugova() . "</p>";
-
-$d = new Krug(2.7);
-echo $d->obimKruga() . "<br>";
-echo $d->povrsinaKruga() . "<br>";
+$krug = new Krug(2);
+echo "<p>Promenljiva pi je (poziv preko objekta): " . $krug->getPi() . "</p>";
+echo "<p>Promenljiva broj decimala je (poziv preko objekta): " . $krug->getBrojDecimala() . "</p>";
+echo "<p>Obim kruga je: " . $krug->obimKruga() . "</p>";
+echo "<p>Povrsina kruga je: " . $krug->povrsinaKruga() . "</p>";
+$krug->setPi(3.14159);
+echo "<p>Promenljiva pi je (poziv preko objekta): " . $krug->getPi() . "</p>";
+echo "<p>Promenljiva pi je (poziv bez objekta): " . Krug::getPi() . "</p>";
+echo "<p>Obim kruga je: " . $krug->obimKruga() . "</p>";
+echo "<p>Povrsina kruga je: " . $krug->povrsinaKruga() . "</p>";
 Krug::setBrojDecimala(4);
-echo $d->obimKruga() . "<br>";
-echo $d->povrsinaKruga() . "<br>"; // Krug::brojKrugova = 2
-
-echo "<p>Broj krugova do sada je: " . Krug::getBrojKrugova() . "</p>";
-
-$f = new Krug(7);   // Krug::brojKrugova = 2
-
-echo "<p>Broj krugova do sada je: " . Krug::getBrojKrugova() . "</p>";
+echo "<p>Obim kruga je: " . $krug->obimKruga() . "</p>";
+echo "<p>Povrsina kruga je: " . $krug->povrsinaKruga() . "</p>";
 
 
 
