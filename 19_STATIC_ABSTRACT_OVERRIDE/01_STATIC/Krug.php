@@ -3,6 +3,8 @@
 class Krug {
     protected $r;
     const PI = 3.14;
+    private static $pi = self::PI;
+    private static $brojDecimala = 2;
 
     public function __construct($r) {
         $this->setR($r);
@@ -21,11 +23,27 @@ class Krug {
     }
 
     public function obimKruga() {
-        return 2 * $this->r * self::PI;
+        return round(2 * $this->r * self::$pi, self::$brojDecimala);
     }
     
     public function povrsinaKruga() {
-        return ($this->getR() ** 2) * self::PI;
+        return round(($this->getR() ** 2) * self::$pi, self::$brojDecimala);
+    }
+
+    public static function setPi($vr){
+        self::$pi = $vr;
+    }
+
+    public static function getPi(){
+        return self::$pi;
+    }
+
+    public static function setBrojDecimala($br){
+        self::$brojDecimala = $br;
+    }
+
+    public static function getBrojDecimala(){
+        return self::$brojDecimala;
     }
 }
 
