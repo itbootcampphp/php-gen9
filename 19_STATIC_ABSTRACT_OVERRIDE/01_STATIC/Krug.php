@@ -6,7 +6,15 @@ class Krug {
     private static $pi = self::PI;
     private static $brojDecimala = 2;
 
+    private static $brojKrugova = 0;
+
+    public static function getBrojKrugova()
+    {
+        return self::$brojKrugova;
+    }
+
     public function __construct($r) {
+        self::$brojKrugova++;
         $this->setR($r);
     }
 

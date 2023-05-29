@@ -22,16 +22,25 @@ $a->setPi(3.14159);
 echo $a->obimKruga() . "<br>";
 echo $a->povrsinaKruga() . "<br>";*/
 
+
 echo Krug::getPi()."<br>";
 Krug::setPi(3.14159);
 echo Krug::getPi(). "<br>";
+
+echo "<p>Broj krugova do sada je: " . Krug::getBrojKrugova() . "</p>";
 
 $d = new Krug(2.7);
 echo $d->obimKruga() . "<br>";
 echo $d->povrsinaKruga() . "<br>";
 Krug::setBrojDecimala(4);
 echo $d->obimKruga() . "<br>";
-echo $d->povrsinaKruga() . "<br>";
+echo $d->povrsinaKruga() . "<br>"; // Krug::brojKrugova = 2
+
+echo "<p>Broj krugova do sada je: " . Krug::getBrojKrugova() . "</p>";
+
+$f = new Krug(7);   // Krug::brojKrugova = 2
+
+echo "<p>Broj krugova do sada je: " . Krug::getBrojKrugova() . "</p>";
 
 
 
