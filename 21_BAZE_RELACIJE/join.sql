@@ -16,7 +16,7 @@ LEFT JOIN `studenti` ON `ispiti`.`student_indeks`=`studenti`.`indeks`
 LEFT JOIN `predmeti` ON `ispiti`.`predmet_id`=`predmeti`.`id`
 LEFT JOIN `nastavnici` ON `ispiti`.`nastavnik_id`=`nastavnici`.`id`;
 
--- Uraditi prethodni zadatak, samo ispisati one ispite koji su se polagali u tekućoj godini.
+-- Uraditi prethodni zadatak, samo ispisati one ispite koji su se polagali određenog dana.
 SELECT 
 CONCAT(`studenti`.`ime`, " ", `studenti`.`prezime`) AS `student`,
 `predmeti`.`naziv`,
