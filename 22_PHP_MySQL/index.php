@@ -44,7 +44,7 @@
                                 if($res->num_rows==0){
                                     echo "<p>NEMA UNETIH PODATAKA</p>";
                                 }else{
-                                    while($row = $res->fetch_assoc()){
+                                    while($row = $res->fetch_assoc()){ //$row mi je jedan red iz baze u obliku ['id'=>1, 'ime'=>'Elizabeta', 'prezime'=>'Markus', ...]
                                         ?>
                                         <tr>
                                             <td><?php echo $row['id']; ?></td>
@@ -52,21 +52,18 @@
                                             <td><?php echo $row['email']; ?></td>
                                             <td><?php echo $row['broj_telefona']; ?></td>
                                             <td>
+                                                <!-- u sva tri linka saljemo ID studenta get metodom tj putem linka da bi mogli da pokupimo taj podatak i znamo o kom sudentu se radi -->
                                                 <a href="read.php?id=<?php echo $row['id']?>" class="btn btn-info"> Pregled </a>
                                                 <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-success"> Izmena </a>
                                                 <a href="delete.php?id=<?php echo $row['id']?>" class="btn btn-danger"> Brisanje </a>
                                             </td>
                                         </tr>
-                                        
                                         <?php
                                     }
                                 }
-
                             ?>
-                                
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>

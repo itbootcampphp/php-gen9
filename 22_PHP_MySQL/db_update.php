@@ -1,5 +1,9 @@
 <?php
 require_once "connection.php";
+
+//ideja je da u tabeli db_update cuvamo podatke o izvrsenim upitima kako se oni ne bi ponovo izvrsili,
+//a da u nizu $upiti dodajemo upite koje je potrebno izvrsiti nad bazom podatak ali da se obezbedimo da se oni izvrse samo jednom
+
 /*
 CREATE TABLE db_update (
     id int(10) UNSIGNED PRIMARY KEY,
@@ -39,8 +43,9 @@ $upiti[] = [
     'opis' => 'Insert u tabelu studenti'
 ];
 
+//treba da napracimo niz ID-jeva upita koji su izvrseni kako bi pomocu php f-je in_array() proverili da li upit do kog smo dosli prilikom prolaza kroz niz $upiti vec izvrsen
 $izvrseni = $conn->query("SELECT id FROM `db_update`;");
-$arr = $izvrseni->fetch_all(MYSQLI_ASSOC);
+$arr = $izvrseni->fetch_all(MYSQLI_ASSOC); //ovaj niz izgleda [['id'=>1], ['id'=>2], ['id'=>3], ...] a nama treba [1, 2, 3, ...]
 $ids = [];
 foreach ($arr as $value) {
     $ids[]=$value['id'];
@@ -51,55 +56,21 @@ if(count($upiti)==count($ids)){
 }
 else{
     foreach ($upiti as $u) {
-        //ako mi trenutni id upita nije u nizu vec izvrsenih onda ga izvrsi
+        //upit se izvrsava ako njegov id nije u nizu vec izvrsenih upita $ids
         if(!in_array($u['id'], $ids)){
             $r = $conn->query($u['upit']);
             if($r){
-                //uspesno izvrsen
+                //uspesno izvrsen upisi podatak u db_update da je upit izvrsen
                 $r2 = $conn->query("INSERT INTO `db_update` VALUES (" . $u['id'] . ", '" . $u['opis'] . "');");
                 if(!$r2){
                     echo "doslo je do greske:" . $conn->error;
                     break;
                 }
-                echo "upit sa id=" . $u['id'] . "je uspesno izvrsen";
+                echo "<p style='color:green'>upit sa id=" . $u['id'] . "je uspesno izvrsen</p>";
             }else{
-                echo "doslo je do greske:" . $conn->error;
+                echo "<p style='color:red'>doslo je do greske:" . $conn->error . "</p>";
                 break;
             }
         }
     }
 }
-
-
-
-
-
-
-/*
-if($conn->query($upit2)){
-    echo "uspesno napravljena tabela studenti";
-}else{
-    echo "doslo je do greske:" . $conn->error;
-}
-
-
-$upit3 = "SELECT * FROM `studenti`;";
-unutar while petlje hvatamo red po red rezultata koji daje selct upit
-$r = $conn->query($upit3);
-if($r->num_rows>0){
-    while($row = $r->fetch_assoc()){
-        echo "<p> id=".$row['id']." ime=".$row['ime']."</p>";
-    }
-}else{
-    echo "nema rezultata za ovaj selct: ".$upit3;
-}
-echo "<hr>";
-2. nacin da uhvatimo sve redove od jednom
-$r2 = $conn->query($upit3);
-$arr = $r2->fetch_all(MYSQLI_ASSOC);
-
-foreach ($arr as $row) {
-    echo "<p> id=".$row['id']." ime=".$row['ime']."</p>";
-}
-*/
-
