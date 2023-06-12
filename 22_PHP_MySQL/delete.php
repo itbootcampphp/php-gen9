@@ -1,5 +1,24 @@
 <?php
 require_once 'connection.php';
+$id = "";
+if( $_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])){
+    $id=$_GET['id'];
+    //mozete da izvadite dodatne podatke o studentu i prikazete ga pre brisanja
+}
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $id=$_POST['id'];
+
+    $q = "DELETE FROM `studenti` WHERE `id`=" . $id . ";";
+    $r = $conn->query($q);
+    if($r){
+        //uspesno obrisan student, prebaci ga na index.php
+        header("location: index.php");
+        exit();
+    }else{
+        //doslo je do greske
+        echo "<p>DOSLO JE DO GRESKE</p>";
+    }
+}
 
 ?>
 <!doctype html>
@@ -25,7 +44,14 @@ require_once 'connection.php';
                         <h4>Student: brisanje</h4>
                     </div>
                     <div class="card-body">
-                   
+                    <form action="#" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id?>">
+                        <p>Da li ste sigurni da želite da obrišete podatak?</p>
+                        <p>
+                            <button type="submit" class="btn btn-danger"> DA </button>
+                            <a href="index.php" class="btn btn-secondary"> NE </a>
+                        </p>
+                    </form>
                     </div>
                 </div>
             </div>

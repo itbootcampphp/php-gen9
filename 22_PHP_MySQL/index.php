@@ -39,7 +39,7 @@
                             </thead>
                             <tbody>
                             <?php
-                                $q = "SELECT * FROM `studenti` ORDER BY ime, prezime;";
+                                $q = "SELECT * FROM `studenti` ORDER BY `ime`, `prezime`;";
                                 $res = $conn->query($q);
                                 if($res->num_rows==0){
                                     echo "<p>NEMA UNETIH PODATAKA</p>";
