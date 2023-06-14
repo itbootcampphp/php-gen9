@@ -43,6 +43,8 @@ $upiti[] = [
     'opis' => 'Insert u tabelu studenti'
 ];
 
+
+
 //treba da napracimo niz ID-jeva upita koji su izvrseni kako bi pomocu php f-je in_array() proverili da li upit do kog smo dosli prilikom prolaza kroz niz $upiti vec izvrsen
 $izvrseni = $conn->query("SELECT id FROM `db_update`;");
 $arr = $izvrseni->fetch_all(MYSQLI_ASSOC); //ovaj niz izgleda [['id'=>1], ['id'=>2], ['id'=>3], ...] a nama treba [1, 2, 3, ...]
@@ -71,6 +73,8 @@ else{
                 echo "<p style='color:red'>doslo je do greske:" . $conn->error . "</p>";
                 break;
             }
+        }else{
+            echo "<p style='color:green'>upit JE VEC IZVRSEN id=" . $u['id'] . "</p>";
         }
     }
 }
