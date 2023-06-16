@@ -1,4 +1,11 @@
 <?php
+    // Ne dozvoljavamo pristup ovoj stranici logovanim korisnicima
+    session_start();
+    if(isset($_SESSION["id"]))
+    {
+        header("Location: index.php");
+    }
+
     require_once "connection.php";
     require_once "validation.php";
 
@@ -13,9 +20,9 @@
     {
         // forma je poslata, treba pokupiti vrednosti iz polja
 
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $retype = $_POST["retype"];
+        $username = $conn->real_escape_string($_POST["username"]);
+        $password = $conn->real_escape_string($_POST["password"]);
+        $retype = $conn->real_escape_string($_POST["retype"]);
 
         // 1) Izvrsiti validaciju za $username
         $usernameError = usernameValidation($username, $conn);
