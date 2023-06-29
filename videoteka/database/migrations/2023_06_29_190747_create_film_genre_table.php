@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //OVO DODAJEMO AKO DEFINISANJE STRANIH KLJUCEVA NE PRODJE KAKO TREBA PA MORAMO DA POKRENEMO MIGRACIJU PONOVO
+        //POSTOJI MOGUCNOST DA SE TABELA DEFINISALA SA KOLONAMA ALI DA NEMA STRANE KLJUCEVE ILI DA IH NEMA SVE
+        //PRVO CEMO IZVRSITI BRISANJE TABELE UKOLIKO ONA POSTOJI DA BI MOGLI DA KREIRAMO NOVU TABELU SA IZMENJENIM KODOM
+        Schema::dropIfExists('film_genre');
+
         Schema::create('film_genre', function (Blueprint $table) {
             $table->unsignedBigInteger('film_id')->nullable(true);
             $table->unsignedBigInteger('genre_id')->nullable(true);
