@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
+//use Illuminate\Support\Facades\App;
 
 
 /*
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\App;
 */
 
 Route::get('/lang/{locale}', function (string $locale) {
-    App::setLocale($locale);
+    //App::setLocale($locale);
     session(['locale' => $locale]);
 
     //povratak na prethodnu stranicu
