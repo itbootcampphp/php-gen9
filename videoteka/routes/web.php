@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/lang/{locale}', function (string $locale) {
+    App::setLocale($locale);
+    session(['locale' => $locale]);
+
+    //povratak na prethodnu stranicu
+    return redirect()->back();
+})->whereIn('locale', ['en', 'sr'])->name('lang');
+
 
 Route::get('/', function () {
     return view('welcome');
