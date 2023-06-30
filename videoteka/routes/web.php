@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 //use Illuminate\Support\Facades\App;
+use App\Http\Controllers\GenreController;
 
 
 /*
@@ -37,6 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //prikaz svih podataka
+    Route::get('/genre', [GenreController::class, 'index'])
+    ->name('genre.index');
+
 
 
 });
