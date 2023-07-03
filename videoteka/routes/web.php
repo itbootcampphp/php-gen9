@@ -43,6 +43,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/genre', [GenreController::class, 'index'])
     ->name('genre.index');
 
+    //prikaz forme za unos
+    Route::get('/genre/create', [GenreController::class, 'create'])
+    ->name('genre.create');
+    
+    //validacija podataka i upis novog reda u tabelu
+    Route::post('/genre', [GenreController::class, 'store'])
+    ->name('genre.store');
+
+    //forma za izmenu podatka
+    Route::get('/genre/{genre}/edit', [GenreController::class, 'edit'])
+    ->name('genre.edit');
+
+    //izmena postojećeg podatka
+    Route::put('/genre/{genre}', [GenreController::class, 'update'])
+    ->name('genre.update');
+
 
 
 });
