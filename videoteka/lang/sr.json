@@ -12,5 +12,17 @@
     "Add" : "Dodaj",
     "Save" : "Sačuvaj",
     "Cancel" : "Otkaži",
-    "Edit" : "Izmeni"
+    "Edit" : "Izmeni",
+    "Delete" : "Obriši",
+    "Successfully added." : "Uspešno dodato.",
+    "Successfully updated." : "Uspešno izmenjeno.",
+    "Successfully deleted." : "Uspešno obrisano.",
+    "Showing" : "Prikaz",
+    "to" : "-",
+    "of" : "od",
+    "results" : "rezultata",
+    "No." : "R.br.",
+    "Information" : "Informacije",
+    "Rating" : "Ocena",
+    "Running time" : "Vreme trajanja"
 }
