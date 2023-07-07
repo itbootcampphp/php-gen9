@@ -13,7 +13,6 @@
         <thead>
             <tr>
             <th scope="col">{{ __('No.') }}</th>
-            <th scope="col">id</th>
             <th scope="col">{{ __('Name EN') }}</th>
             <th scope="col">{{ __('Name SR') }}</th>
             <th scope="col">#</th>
@@ -23,7 +22,6 @@
         @foreach ($data as $g)
             <tr>
                 <td>{{ ($data->currentPage() - 1) * $data->perPage() + $loop->iteration  }}</td>
-                <td>{{ $g->id }}</td>
                 <td>{{ $g->name_en }}</td>
                 <td>{{ $g->name_sr }}</td>
                 <td>

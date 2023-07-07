@@ -24,5 +24,14 @@
     "No." : "R.br.",
     "Information" : "Informacije",
     "Rating" : "Ocena",
-    "Running time" : "Vreme trajanja"
+    "Running time" : "Vreme trajanja",
+    "Back" : "Vrati se nazad",
+    "Films" : "Filmovi",
+    "Directors" : "Režiseri",
+    "Writers" : "Scenaristi",
+    "Stars" : "Glavni glumci",
+    "Name" : "Naziv",
+    "Image" : "Poster",
+    "Year" : "Godina",
+    "Remove" : "Ukloni"
 }

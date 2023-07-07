@@ -67,7 +67,8 @@ Route::middleware('auth')->group(function () {
     //definisanje svih 7 ruta za kontroler
     Route::resource('film', FilmController::class);
 
-
+    Route::post('/film', [FilmController::class, 'index'])
+    ->name('film.index');
 });
 
 require __DIR__.'/auth.php';

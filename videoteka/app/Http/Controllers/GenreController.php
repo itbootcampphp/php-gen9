@@ -6,6 +6,7 @@ use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\App;
+use Exception;
 
 class GenreController extends Controller
 {
@@ -117,11 +118,37 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        $genre->delete();
+        try{
+            $genre->delete();
 
-        session()->flash('alertType', 'success');
-        session()->flash('alertMsg', 'Successfully deleted.');
+            session()->flash('alertType', 'success');
+            session()->flash('alertMsg', 'Successfully deleted.');
 
-        return redirect()->route('genre.index');
+            return redirect()->route('genre.index');
+        }
+        catch(Exception $e) {
+            //echo 'Message: ' .$e->getMessage();
+            session()->flash('alertType', 'danger');
+            session()->flash('alertMsg', 'Cannot be deleted.');
+
+            return redirect()->route('genre.index');
+        }
+    }
+
+    public function destroy2(Genre $genre)
+    {
+        if($genre->films->count()){
+            session()->flash('alertType', 'danger');
+            session()->flash('alertMsg', 'Cannot be deleted. Films='.$genre->films->count());
+
+            return redirect()->route('genre.index');
+        }else{
+            $genre->delete();
+    
+            session()->flash('alertType', 'success');
+            session()->flash('alertMsg', 'Successfully deleted.');
+    
+            return redirect()->route('genre.index');        
+        }
     }
 }
